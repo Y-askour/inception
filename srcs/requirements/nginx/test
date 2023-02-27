@@ -1,0 +1,6 @@
+FROM node
+
+WORKDIR /www
+
+COPY ./server/ /www
+CMD npm run start
