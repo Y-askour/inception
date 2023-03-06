@@ -2,7 +2,7 @@
 
 service mysql start
 
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$ROOT_PASSWORD';" >> database.sql
+
 echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;" > database.sql
 
 #set root with the password 123456789
