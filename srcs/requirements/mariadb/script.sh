@@ -2,6 +2,7 @@
 
 service mysql start
 
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$ROOT_PASSWORD';" >> database.sql
 echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;" > database.sql
 
 #set root with the password 123456789
@@ -16,4 +17,8 @@ echo "GRANT ALL ON $WP_DB_NAME.* TO '$WP_DB_USER'@'%';" >> database.sql
 #reloads the privileges from the grant tables in the MySQL database
 echo "FLUSH PRIVILEGES;" >> database.sql
 
-mysql < database.sql
+mysqld < database.sql
+
+kill `cat /var/run/mysqld/mysqld.pid`
+
+mysqld-safe
