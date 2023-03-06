@@ -17,8 +17,8 @@ echo "GRANT ALL ON $WP_DB_NAME.* TO '$WP_DB_USER'@'%';" >> database.sql
 #reloads the privileges from the grant tables in the MySQL database
 echo "FLUSH PRIVILEGES;" >> database.sql
 
-mysqld < database.sql
+mysql < database.sql
 
 kill `cat /var/run/mysqld/mysqld.pid`
 
-mysqld-safe
+mysqld_safe
