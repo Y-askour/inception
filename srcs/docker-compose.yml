@@ -1,12 +1,40 @@
-version: '3'
+version: '3.7'
 
 services:
+  # nginx setup
   nginx:
     build: ./requirements/nginx/
     image: nginx
+    networks:
+      - inception
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./requirements/nginx/web:/var/www/html
       - ./requirements/nginx/nginx.conf:/etc/nginx/nginx.conf
+    env_file:
+      - env
+    restart : always
+
+    # mariadb setup
+  mariadb:
+    build: ./requirements/mariadb/
+    image: mariadb
+    networks:
+      - inception
+    ports:
+      - 3306:3306
+    env_file:
+      - env
+    restart : always
+
+    # wordpress setup
+
+
+
+# network that holds all my containers
+networks:
+  inception:
+    name : inception
+    driver : bridge
