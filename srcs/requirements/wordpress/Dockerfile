@@ -1,2 +1,6 @@
 FROM debian:buster
-RUN apt install php libapache2-mod-php php-mysql
+WORKDIR /var/www/html
+COPY ./script.sh /var/www/html
+RUN sh script.sh
+CMD /bin/bash
+

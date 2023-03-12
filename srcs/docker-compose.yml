@@ -8,7 +8,6 @@ services:
     networks:
       - inception
     ports:
-      - 80:80
       - 443:443
     volumes:
       - ./requirements/nginx/web:/var/www/html
