@@ -1,6 +1,7 @@
 FROM debian:buster
 WORKDIR /root
 COPY ./cer/ /root
+COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN apt-get update -y && apt-get install nginx -y
 RUN apt-get install -y openssl
 RUN cp localhost.crt /etc/ssl/certs/localhost.crt
