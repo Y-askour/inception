@@ -1,6 +1,11 @@
 FROM debian:buster
 WORKDIR /var/www/html
-COPY ./script.sh /var/www/html
-RUN sh script.sh
-CMD /bin/bash
+
+COPY setup.sh /
+COPY install_wp.sh /
+RUN sh /setup.sh
+RUN sh /install_wp.sh
+
+
+CMD while true; do sleep 1; done 
 

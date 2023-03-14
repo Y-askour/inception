@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+
   # nginx setup
   nginx:
     build: ./requirements/nginx/
@@ -14,9 +15,11 @@ services:
       - ./requirements/nginx/nginx.conf:/etc/nginx/nginx.conf
     env_file:
       - env.env
+    depends_on:
+      - wordpress
     restart : always
 
-    # mariadb setup
+  # mariadb setup
   mariadb:
     build: ./requirements/mariadb/
     image: mariadb
@@ -26,9 +29,23 @@ services:
       - 3306:3306
     env_file:
       - env.env
+    volumes:
+      - ./requirements/mariadb/db/:/var/lib/mysql/word_db
     restart : always
 
-    # wordpress setup
+  #wordpress setup
+  wordpress:
+    build: ./requirements/wordpress/
+    image: wordpress
+    networks:
+      - inception
+    env_file:
+      - env.env
+    depends_on:
+      - mariadb
+    volumes:
+      - ./requirements/nginx/web:/var/www/html
+    restart: always
 
 
 
