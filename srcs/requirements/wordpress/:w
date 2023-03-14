@@ -3,14 +3,10 @@ ROOT_PASSWORD=1234
 WP_DB_USER=younes
 WP_DB_PASSWORD=1234
 db_host=mariadb
-
-email=yaskouraskour@gmail.com
-admin_pass=1234
-admin_user=younes
-
-user_word=yaskour
-user_pass=1234
 user_email=test@gmail.com
 
 
 
+email=yaskouraskour@gmail.com
+admin_pass=1234
+admin_user=younes
