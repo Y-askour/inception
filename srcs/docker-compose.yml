@@ -39,6 +39,8 @@ services:
     image: wordpress
     networks:
       - inception
+    ports:
+      9000:9000
     env_file:
       - env.env
     depends_on:
