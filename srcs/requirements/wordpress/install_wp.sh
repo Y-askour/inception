@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 4
 cd /var/www/html
 wp-cli core download --allow-root
 wp-cli config create --allow-root --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASSWORD --dbhost=mariadb
