@@ -55,6 +55,17 @@ networks:
   inception:
     name : inception
     driver : bridge
+
 volumes:
   web:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/yaskour/data/web
   db-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/yaskour/data/db
