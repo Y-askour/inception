@@ -7,4 +7,4 @@ RUN apt-get install -y openssl
 RUN cp localhost.crt /etc/ssl/certs/localhost.crt
 RUN cp localhost.key /etc/ssl/private/localhost.key
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
